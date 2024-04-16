@@ -4,7 +4,7 @@ metadata:
   name: serviceaccount-clusterrole-binding-01
 subjects:
 - kind: ServiceAccount
-  name: sa-01
+  name: sa
   namespace: default
 roleRef:
   kind: ClusterRole
