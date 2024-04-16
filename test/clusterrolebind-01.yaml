@@ -1,10 +1,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: serviceaccount-clusterrole-binding
+  name: serviceaccount-clusterrole-binding-01
 subjects:
 - kind: ServiceAccount
-  name: sa
+  name: sa-01
   namespace: default
 roleRef:
   kind: ClusterRole
