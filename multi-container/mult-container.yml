@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-container-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: multi-container-app
+  template:
+    metadata:
+      labels:
+        app: multi-container-app
+    spec:
+      containers:
+      - name: container1
+        image: nginx
+        imagePullPolicy: Always
+      - name: container2
+        image: redis
+        imagePullPolicy: Always
+      - name: container3
+        image: postgres
+        imagePullPolicy: Always
+      - name: container4
+        image: busybox
+        imagePullPolicy: Always
+      - name: container5
+        image: ubuntu
+        imagePullPolicy: Always
+      - name: container6
+        image: alpine
+        imagePullPolicy: Always
+      - name: container7
+        image: centos
+        imagePullPolicy: Always
+      - name: container8
+        image: mongo
+        imagePullPolicy: Always
+      - name: container9
+        image: python
+        imagePullPolicy: Always
+      - name: container10
+        image: node
+        imagePullPolicy: Always
+      nodeSelector:
+        kubernetes.io/hostname: workernode02
