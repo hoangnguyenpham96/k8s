@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container5-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container5
+  template:
+    metadata:
+      labels:
+        app: container5
+    spec:
+      containers:
+      - name: container5
+        image: ubuntu
+        imagePullPolicy: Always
+        namespace: multi-container
+      nodeSelector:
+        kubernetes.io/hostname: workernode02
