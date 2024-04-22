@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container3
+  template:
+    metadata:
+      labels:
+        app: container3
+    spec:
+      containers:
+      - name: container3
+        image: postgres
+        imagePullPolicy: Always
+        namespace: multi-container
+      nodeSelector:
+        kubernetes.io/hostname: workernode02
