@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container4-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container4
+  template:
+    metadata:
+      labels:
+        app: container4
+    spec:
+      containers:
+      - name: container4
+        image: busybox
+        imagePullPolicy: Always
+        namespace: multi-container
+      nodeSelector:
+        kubernetes.io/hostname: workernode02
